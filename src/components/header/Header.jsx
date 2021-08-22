@@ -24,13 +24,17 @@ function Header({ currentUser, hidden }) {
                     currentUser ?
                         <div className="option" onClick={() => auth.signOut()}>SIGN OUT</div>
                         :
-                        <Link className="option" to="/signin">
+                        <NavLink className="option" to="/signin" activeStyle={{ color: "red", fontWeight: "bold" }}>
                             SIGN IN
-                        </Link>
+                        </NavLink>
                 }
                 <CartIcon />
             </div>
-            {hidden ? null : <CartDropdown />}
+            {
+                hidden ?
+                    null :
+                    <CartDropdown />
+            }
         </div>
     )
 }
