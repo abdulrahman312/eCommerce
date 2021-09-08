@@ -9,25 +9,19 @@ import './cart-icon.styles.scss';
 const CartIcon = ({ toggleCartHidden, hidden }) => (
     <div
         className="cart-icon"
-        onMouseEnter={toggleCartHidden}
-        onMouseLeave={toggleCartHidden}
-        onClick={
-            hidden ?
-                toggleCartHidden :
-                null
-        }
+        onClick={toggleCartHidden}
     >
         <ShoppingIcon className="shopping-icon" />
         <span className="item-count">0</span>
     </div>
 )
 
-const mapDispatchToProps = dispatch => ({
-    toggleCartHidden: () => dispatch(toggleCartHidden()),
-})
-
 const mapStatetoProps = ({ cart: { hidden } }) => ({
     hidden,
+})
+
+const mapDispatchToProps = dispatch => ({
+    toggleCartHidden: () => dispatch(toggleCartHidden()),
 })
 
 export default connect(mapStatetoProps, mapDispatchToProps)(CartIcon);
